@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>页面切换动画测试</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components-extra.css">
+    <style>
+        body {
+            background: var(--background-color);
+            padding: 4vw;
+        }
+        .test-title {
+            font-size: 4.5vw;
+            line-height: 6vw;
+            color: var(--text-title-color);
+            margin-bottom: 3vw;
+            font-family: mipro-medium, miui-bold, mipro, miui;
+        }
+        .test-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2vw;
+            margin-bottom: 4vw;
+        }
+        .test-buttons .za-button {
+            flex: 1;
+            min-width: calc(50% - 1vw);
+        }
+        /* 返回按钮样式 */
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 9.259259vw;
+            height: 9.259259vw;
+            border-radius: 50%;
+            background: var(--button-background-color);
+            border: none;
+            cursor: pointer;
+            color: var(--text-title-color);
+            transition: background 0.2s;
+        }
+        .back-btn:active {
+            background: var(--divider-color);
+            transform: scale(0.95);
+        }
+        .page-inner {
+            min-height: 100vh;
+            background: var(--background-color);
+            padding: 4vw;
+        }
+        .page-navbar {
+            display: flex;
+            align-items: center;
+            height: 14.814815vw;
+            margin: -4vw -4vw 4vw;
+            padding: 0 4.444444vw 0 5.37037vw;
+            border-bottom: 0.7px solid var(--divider-color);
+        }
+        .page-navbar-title {
+            flex: 1;
+            font-size: 5.185185vw;
+            line-height: 6.851852vw;
+            color: var(--text-title-color);
+            font-family: mipro-medium, miui-bold, mipro, miui;
+            margin-left: 2vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-title">页面切换动画测试</div>
+    
+    <div class="za-card" style="margin-bottom: 3vw;">
+        <div class="za-card-title">测试说明</div>
+        <div class="za-card-content">
+            点击下方按钮打开新页面，然后点击新页面左上角的返回按钮测试返回功能。
+        </div>
+    </div>
+
+    <div class="za-card" style="margin-bottom: 3vw;">
+        <div class="za-card-title">当前页面层级：<span id="pageCount">0</span></div>
+    </div>
+    
+    <div class="test-title">动画类型</div>
+    <div class="test-buttons">
+        <button class="za-button za-button-primary" id="btn-fade">淡入淡出</button>
+        <button class="za-button za-button-primary" id="btn-slide-right">右滑进入</button>
+        <button class="za-button za-button-primary" id="btn-slide-up">底部滑入</button>
+        <button class="za-button za-button-primary" id="btn-scale">缩放淡入</button>
+    </div>
+    
+    <div class="test-title">主题切换</div>
+    <button class="za-button" id="btn-theme">切换主题</button>
+
+    <script src="js/components.js"></script>
+    <script>
+        function updatePageCount() {
+            document.getElementById('pageCount').textContent = ZA.getPageCount();
+        }
+
+        function openTestPage(animation) {
+            const pageNumber = ZA.getPageCount() + 1;
+
+            // 创建页面DOM节点（不用innerHTML字符串，避免事件绑定问题）
+            const pageDiv = document.createElement('div');
+            pageDiv.className = 'za-page';
+
+            const inner = document.createElement('div');
+            inner.className = 'page-inner';
+
+            // 导航栏
+            const navbar = document.createElement('div');
+            navbar.className = 'page-navbar';
+
+            const backBtn = document.createElement('button');
+            backBtn.className = 'back-btn';
+            backBtn.innerHTML = '<i class="za-icon za-icon-md" style="font-family:\'Material Icons\';font-style:normal;">arrow_back</i>';
+            backBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                ZA.backPage();
+                setTimeout(updatePageCount, 300);
+            });
+
+            const navTitle = document.createElement('span');
+            navTitle.className = 'page-navbar-title';
+            navTitle.textContent = '页面 ' + pageNumber;
+
+            navbar.appendChild(backBtn);
+            navbar.appendChild(navTitle);
+            inner.appendChild(navbar);
+
+            // 卡片内容
+            const card = document.createElement('div');
+            card.className = 'za-card';
+            card.style.marginBottom = '3vw';
+            card.innerHTML = `
+                <div class="za-card-title">${animation} 动画</div>
+                <div class="za-card-content">这是第 ${pageNumber} 层页面。<br><br>点击左上角返回按钮可以返回上一页。</div>
+            `;
+            inner.appendChild(card);
+
+            // 继续测试按钮
+            const card2 = document.createElement('div');
+            card2.className = 'za-card';
+            card2.style.marginBottom = '3vw';
+            card2.innerHTML = '<div class="za-card-title">继续测试</div>';
+
+            const btnWrap = document.createElement('div');
+            btnWrap.style.cssText = 'display:flex;flex-direction:column;gap:2vw;margin-top:2vw;';
+
+            [['slide-right','右滑进入'], ['slide-up','底部滑入'], ['fade','淡入淡出'], ['scale','缩放淡入']].forEach(([anim, label]) => {
+                const b = document.createElement('button');
+                b.className = 'za-button' + (anim === 'slide-right' ? ' za-button-primary' : '');
+                b.style.width = '100%';
+                b.textContent = '打开新页面（' + label + '）';
+                b.addEventListener('click', () => openTestPage(anim));
+                btnWrap.appendChild(b);
+            });
+
+            card2.appendChild(btnWrap);
+            inner.appendChild(card2);
+
+            // 列表
+            [1,2,3,4,5].forEach(i => {
+                const item = document.createElement('div');
+                item.className = 'za-list-item za-list-item-animate';
+                item.innerHTML = `
+                    <div class="za-list-item-label-wrap">
+                        <div class="za-list-item-label">列表项 ${i}</div>
+                        <div class="za-list-item-desc">带有进入动画，延迟 ${(i-1)*0.05}s</div>
+                    </div>
+                `;
+                inner.appendChild(item);
+            });
+
+            pageDiv.appendChild(inner);
+
+            // 直接传入DOM节点
+            ZA.showPage(pageDiv, {
+                animation: animation,
+                onEnter: () => {
+                    updatePageCount();
+                    ZA.toast('页面已打开');
+                }
+            });
+        }
+
+        document.getElementById('btn-fade').addEventListener('click', () => openTestPage('fade'));
+        document.getElementById('btn-slide-right').addEventListener('click', () => openTestPage('slide-right'));
+        document.getElementById('btn-slide-up').addEventListener('click', () => openTestPage('slide-up'));
+        document.getElementById('btn-scale').addEventListener('click', () => openTestPage('scale'));
+        document.getElementById('btn-theme').addEventListener('click', () => {
+            const t = ZA.toggleTheme();
+            ZA.toast('已切换到' + (t === 'dark' ? '暗色' : '亮色') + '主题');
+        });
+    </script>
+</body>
+</html>

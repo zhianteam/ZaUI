@@ -1,0 +1,195 @@
+/* 致安组件库 - 图标系统（Material Symbols Rounded，本地字体） */
+
+@font-face {
+    font-family: 'Material Symbols Rounded';
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: block;
+    src: url('./material-symbols-rounded.woff2') format('woff2');
+}
+
+/* ========== 图标基础样式 ========== */
+/*
+  用法：<i class="za-icon za-icon-md">home</i>
+  图标名称参考：https://fonts.google.com/icons?icon.style=Rounded
+*/
+.za-icon {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 9.259259vw;
+    /* 细线风格，接近 MIUI */
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: var(--icon-color);
+    /* 默认 md 尺寸 */
+    width: 9.259259vw;
+    height: 9.259259vw;
+}
+
+/* ========== 图标尺寸（对齐示例样式 ai-icon 体系） ========== */
+.za-icon-xxs {
+    width: 3.703704vw;
+    height: 3.703704vw;
+    font-size: 3.703704vw;
+}
+
+.za-icon-xs {
+    width: 5.555556vw;
+    height: 5.555556vw;
+    font-size: 5.555556vw;
+}
+
+.za-icon-sm {
+    width: 7.407407vw;
+    height: 7.407407vw;
+    font-size: 7.407407vw;
+}
+
+.za-icon-md {
+    width: 9.259259vw;
+    height: 9.259259vw;
+    font-size: 9.259259vw;
+}
+
+.za-icon-lg {
+    width: 11.111111vw;
+    height: 11.111111vw;
+    font-size: 11.111111vw;
+}
+
+.za-icon-arrow {
+    width: 1.842593vw;
+    height: 1.842593vw;
+    font-size: 1.842593vw;
+}
+
+/* 旋转动画（loading 用） */
+.za-icon-loading {
+    animation: za-icon-spin 1s linear infinite;
+}
+
+@keyframes za-icon-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========== 响应式 ========== */
+@media screen and (min-width: 670px) {
+    .za-icon     { width: 6.25vw; height: 6.25vw; font-size: 6.25vw; }
+    .za-icon-xs  { width: 4.75vw; height: 4.75vw; font-size: 4.75vw; }
+    .za-icon-md  { width: 6.25vw; height: 6.25vw; font-size: 6.25vw; }
+}
+
+@media screen and (min-width: 900px) {
+    .za-icon       { width: 24px; height: 24px; font-size: 24px; }
+    .za-icon-xxs   { width: 12px; height: 12px; font-size: 12px; }
+    .za-icon-xs    { width: 16px; height: 16px; font-size: 16px; }
+    .za-icon-sm    { width: 20px; height: 20px; font-size: 20px; }
+    .za-icon-md    { width: 24px; height: 24px; font-size: 24px; }
+    .za-icon-lg    { width: 28px; height: 28px; font-size: 28px; }
+    .za-icon-arrow { width: 8px;  height: 8px;  font-size: 8px;  }
+}
+
+/* ========== 颜色修饰符 ========== */
+.za-icon-primary { color: var(--theme-color); }
+.za-icon-success { color: #52c41a; }
+.za-icon-warning { color: var(--system-yellow); }
+.za-icon-danger  { color: var(--system-red); }
+.za-icon-muted   { color: var(--text-4); }
+.za-icon-white   { color: #fff; }
+
+/* 填充风格（实心图标） */
+.za-icon-filled {
+    font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ========== 图标按钮 ========== */
+.za-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 9.259259vw;
+    height: 9.259259vw;
+    border-radius: 50%;
+    background: var(--button-background-color);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
+    border: none;
+    padding: 0;
+}
+
+.za-icon-button:active {
+    transform: scale(0.9);
+}
+
+.za-icon-button-primary {
+    background: var(--theme-color);
+    color: #fff;
+}
+
+@media screen and (min-width: 670px) {
+    .za-icon-button { width: 6.25vw; height: 6.25vw; }
+}
+
+@media screen and (min-width: 900px) {
+    .za-icon-button { width: 40px; height: 40px; }
+}
+
+/* ========== 常用图标速查 ========== */
+/*
+用法：<i class="za-icon za-icon-md">图标名</i>
+
+导航：
+  arrow_back        返回
+  arrow_forward     前进
+  chevron_right     右箭头（细）
+  close             关闭
+  menu              菜单
+  more_vert         更多（竖）
+  more_horiz        更多（横）
+
+操作：
+  add               添加
+  remove            减少
+  delete            删除
+  edit              编辑
+  check             确认
+  refresh           刷新
+  search            搜索
+  share             分享
+  download          下载
+  upload            上传
+
+状态：
+  check_circle      成功
+  error             错误
+  warning           警告
+  info              信息
+
+功能：
+  home              首页
+  person            用户
+  settings          设置
+  star              收藏
+  favorite          喜欢
+  notifications     通知
+  lock              锁定
+  visibility        可见
+  camera_alt        拍照
+  photo_library     相册
+  folder            文件夹
+  wifi              WiFi
+  bluetooth         蓝牙
+
+完整图标列表：https://fonts.google.com/icons?icon.style=Rounded
+*/

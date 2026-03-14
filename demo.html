@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>致安组件库 - 演示</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components-extra.css">
+    <style>
+        body {
+            background: var(--background-color);
+            padding-bottom: 20vw;
+        }
+        
+        .demo-section {
+            padding: 4vw 4vw;
+        }
+        
+        .demo-title {
+            font-size: 4vw;
+            line-height: 5.5vw;
+            color: var(--text-title-color);
+            margin-bottom: 2.5vw;
+            font-family: mipro-medium, miui-bold, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            font-weight: 400;
+        }
+        
+        .demo-divider {
+            border: none;
+            height: 0.7px;
+            background-color: var(--divider-color);
+            margin: 4vw 0;
+        }
+        
+        .demo-row {
+            display: flex;
+            gap: 2vw;
+            margin-bottom: 2.5vw;
+            flex-wrap: wrap;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 4vw;
+            right: 4vw;
+            z-index: 100;
+        }
+        
+        @media screen and (min-width: 670px) {
+            .demo-section {
+                padding: 3.75vw 4.375vw;
+            }
+            
+            .demo-title {
+                font-size: 3.75vw;
+                line-height: 5vw;
+                margin-bottom: 2.5vw;
+            }
+            
+            .demo-divider {
+                margin: 3.75vw 0;
+            }
+            
+            .demo-row {
+                gap: 1.875vw;
+                margin-bottom: 2.5vw;
+            }
+            
+            .theme-toggle {
+                top: 3.75vw;
+                right: 4.375vw;
+            }
+        }
+        
+        @media screen and (min-width: 900px) and (min-aspect-ratio: 6/5) {
+            .demo-section {
+                padding: 2.34375vw 2.734375vw;
+            }
+            
+            .demo-title {
+                font-size: 2.34375vw;
+                line-height: 3.125vw;
+                margin-bottom: 1.5625vw;
+            }
+            
+            .demo-divider {
+                margin: 2.34375vw 0;
+            }
+            
+            .demo-row {
+                gap: 1.171875vw;
+                margin-bottom: 1.5625vw;
+            }
+            
+            .theme-toggle {
+                top: 2.34375vw;
+                right: 2.734375vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 主题切换按钮 -->
+    <button class="za-button za-button-small theme-toggle" onclick="toggleTheme()">
+        切换主题
+    </button>
+
+    <!-- Button 按钮 -->
+    <div class="demo-section">
+        <div class="demo-title">Button 按钮</div>
+        <div class="demo-row">
+            <button class="za-button">默认按钮</button>
+            <button class="za-button za-button-primary">主要按钮</button>
+        </div>
+        <div class="demo-row">
+            <button class="za-button za-button-small">小按钮</button>
+            <button class="za-button za-button-small za-button-primary">小主按钮</button>
+            <button class="za-button za-button-disable">禁用按钮</button>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Card 卡片 -->
+    <div class="demo-section">
+        <div class="demo-title">Card 卡片</div>
+        <div class="za-card">
+            <div class="za-card-title">卡片标题</div>
+            <div class="za-card-content">
+                这是卡片内容，支持多行文本显示。卡片组件采用了统一的圆角、阴影和间距设计。
+            </div>
+        </div>
+        <div class="za-card">
+            <div class="za-card-title">另一个卡片</div>
+            <div class="za-card-content">
+                卡片会自动适配亮色和暗色主题。
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- ListItem 列表项 -->
+    <div class="demo-section">
+        <div class="demo-title">ListItem 列表项</div>
+        <div class="za-list-item" onclick="ZA.toast('点击了列表项1')">
+            <div class="za-list-item-label-wrap">
+                <div class="za-list-item-label">列表项标题</div>
+                <div class="za-list-item-desc">这是列表项的描述文字</div>
+            </div>
+            <div class="za-list-item-slot">详情</div>
+            <img class="za-list-item-arrow" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z' fill='%23999'/%3E%3C/svg%3E" alt="">
+        </div>
+        <div class="za-list-item">
+            <div class="za-list-item-label-wrap">
+                <div class="za-list-item-label">带开关的列表项</div>
+            </div>
+            <div class="za-switch" data-checked="false">
+                <div class="za-switch-point"></div>
+            </div>
+        </div>
+        <div class="za-list-item">
+            <div class="za-list-item-label-wrap">
+                <div class="za-list-item-label">已开启的开关</div>
+            </div>
+            <div class="za-switch" data-checked="true">
+                <div class="za-switch-point"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Switch 开关 -->
+    <div class="demo-section">
+        <div class="demo-title">Switch 开关</div>
+        <div class="demo-row">
+            <div class="za-switch" data-checked="false">
+                <div class="za-switch-point"></div>
+            </div>
+            <div class="za-switch" data-checked="true">
+                <div class="za-switch-point"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Toast 提示 -->
+    <div class="demo-section">
+        <div class="demo-title">Toast 提示</div>
+        <div class="demo-row">
+            <button class="za-button" onclick="ZA.toast('这是一条提示消息')">显示Toast</button>
+            <button class="za-button" onclick="ZA.toast('这是一条较长的提示消息，会自动换行显示', 3000)">长提示</button>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Modal 模态框 -->
+    <div class="demo-section">
+        <div class="demo-title">Modal 模态框</div>
+        <div class="demo-row">
+            <button class="za-button" onclick="showModal1()">基础模态框</button>
+            <button class="za-button" onclick="showModal2()">自定义内容</button>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Loading 加载 -->
+    <div class="demo-section">
+        <div class="demo-title">Loading 加载</div>
+        <div class="demo-row">
+            <div class="za-loading">
+                <div class="za-loading-point"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Icon 图标 -->
+    <div class="demo-section">
+        <div class="demo-title">Icon 图标</div>
+        
+        <!-- 图标尺寸 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标尺寸</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-xs">arrow_back</i>
+                <i class="za-icon za-icon-sm">arrow_back</i>
+                <i class="za-icon za-icon-md">arrow_back</i>
+                <i class="za-icon za-icon-lg">arrow_back</i>
+            </div>
+        </div>
+        
+        <!-- 常用图标 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">常用图标</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md">arrow_back</i>
+                <i class="za-icon za-icon-md">chevron_right</i>
+                <i class="za-icon za-icon-md">close</i>
+                <i class="za-icon za-icon-md">check</i>
+                <i class="za-icon za-icon-md">add</i>
+                <i class="za-icon za-icon-md">delete</i>
+                <i class="za-icon za-icon-md">edit</i>
+                <i class="za-icon za-icon-md">swap_horiz</i>
+                <i class="za-icon za-icon-md">more_vert</i>
+                <i class="za-icon za-icon-md">camera_alt</i>
+            </div>
+        </div>
+        
+        <!-- 箭头图标 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">箭头图标</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md">arrow_back</i>
+                <i class="za-icon za-icon-md">chevron_right</i>
+                <i class="za-icon za-icon-md">check</i>
+            </div>
+        </div>
+        
+        <!-- 操作图标 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">操作图标</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md">add</i>
+                <i class="za-icon za-icon-md">close</i>
+                <i class="za-icon za-icon-md">check</i>
+                <i class="za-icon za-icon-md">delete</i>
+                <i class="za-icon za-icon-md">edit</i>
+                <i class="za-icon za-icon-md">upload</i>
+            </div>
+        </div>
+        
+        <!-- 状态图标 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">状态图标</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md za-icon-success">check_circle</i>
+                <i class="za-icon za-icon-md za-icon-danger">cancel</i>
+                <i class="za-icon za-icon-md za-icon-warning">warning</i>
+                <i class="za-icon za-icon-md za-icon-primary">check</i>
+            </div>
+        </div>
+        
+        <!-- 图标颜色 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标颜色</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md za-icon-primary">check</i>
+                <i class="za-icon za-icon-md za-icon-success">check</i>
+                <i class="za-icon za-icon-md za-icon-warning">check</i>
+                <i class="za-icon za-icon-md za-icon-danger">check</i>
+                <i class="za-icon za-icon-md za-icon-muted">check</i>
+            </div>
+        </div>
+        
+        <!-- 图标动画 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标动画</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md za-icon-loading">refresh</i>
+            </div>
+        </div>
+        
+        <!-- 图标按钮 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标按钮</div>
+            <div class="demo-row">
+                <button class="za-icon-button" onclick="ZA.toast('点击了图标按钮')">
+                    <i class="za-icon za-icon-md">arrow_back</i>
+                </button>
+                <button class="za-icon-button za-icon-button-primary">
+                    <i class="za-icon za-icon-md za-icon-white">check</i>
+                </button>
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">add</i>
+                </button>
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">more_vert</i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- 媒体图标 -->
+    <div class="demo-section">
+        <div class="demo-title">更多图标</div>
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">媒体类</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md">image</i>
+                <i class="za-icon za-icon-md">video_library</i>
+                <i class="za-icon za-icon-md">music_note</i>
+                <i class="za-icon za-icon-md">insert_drive_file</i>
+                <i class="za-icon za-icon-md">folder</i>
+                <i class="za-icon za-icon-md">camera_alt</i>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">通讯类</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md">phone</i>
+                <i class="za-icon za-icon-md">message</i>
+                <i class="za-icon za-icon-md">email</i>
+                <i class="za-icon za-icon-md">notifications</i>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">其他</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md">calendar_today</i>
+                <i class="za-icon za-icon-md">access_time</i>
+                <i class="za-icon za-icon-md">location_on</i>
+                <i class="za-icon za-icon-md">lock</i>
+                <i class="za-icon za-icon-md">lock_open</i>
+                <i class="za-icon za-icon-md">visibility</i>
+                <i class="za-icon za-icon-md">visibility_off</i>
+                <i class="za-icon za-icon-md">qr_code</i>
+                <i class="za-icon za-icon-md">link</i>
+                <i class="za-icon za-icon-md">wifi</i>
+                <i class="za-icon za-icon-md">bluetooth</i>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Input 输入框 -->
+    <div class="demo-section">
+        <div class="demo-title">Input 输入框</div>
+        <div class="za-input-group">
+            <label class="za-input-label">用户名</label>
+            <input type="text" class="za-input" placeholder="请输入用户名">
+        </div>
+        <div class="za-input-group">
+            <label class="za-input-label">密码</label>
+            <input type="password" class="za-input" placeholder="请输入密码">
+        </div>
+        <div class="za-input-group">
+            <label class="za-input-label">搜索</label>
+            <input type="text" class="za-input" placeholder="搜索内容">
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Divider 分割线 -->
+    <div class="demo-section">
+        <div class="demo-title">Divider 分割线</div>
+        <div>上方内容</div>
+        <hr class="za-divider">
+        <div>下方内容</div>
+        <div class="za-divider-text">分割文字</div>
+        <div>更多内容</div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Tag 标签 -->
+    <div class="demo-section">
+        <div class="demo-title">Tag 标签</div>
+        <div class="demo-row">
+            <span class="za-tag">默认标签</span>
+            <span class="za-tag za-tag-primary">主要标签</span>
+            <span class="za-tag za-tag-success">成功标签</span>
+            <span class="za-tag za-tag-warning">警告标签</span>
+            <span class="za-tag za-tag-danger">危险标签</span>
+        </div>
+        <div class="demo-row" style="margin-top: 2vw;">
+            <span class="za-tag za-tag-primary">
+                可关闭
+                <i class="za-icon za-tag-close" onclick="this.parentElement.remove()">close</i>
+            </span>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Checkbox 复选框 -->
+    <div class="demo-section">
+        <div class="demo-title">Checkbox 复选框</div>
+        <div class="demo-row" style="flex-direction: column; align-items: flex-start;">
+            <label class="za-checkbox" data-checked="false">
+                <div class="za-checkbox-input"></div>
+                <span class="za-checkbox-label">选项1</span>
+            </label>
+            <label class="za-checkbox" data-checked="true" style="margin-top: 2vw;">
+                <div class="za-checkbox-input"></div>
+                <span class="za-checkbox-label">选项2（已选中）</span>
+            </label>
+            <label class="za-checkbox" data-checked="false" style="margin-top: 2vw;">
+                <div class="za-checkbox-input"></div>
+                <span class="za-checkbox-label">选项3</span>
+            </label>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Radio 单选框 -->
+    <div class="demo-section">
+        <div class="demo-title">Radio 单选框</div>
+        <div class="demo-row" style="flex-direction: column; align-items: flex-start;">
+            <label class="za-radio" data-name="gender" data-value="male" data-checked="true">
+                <div class="za-radio-input"></div>
+                <span class="za-radio-label">男</span>
+            </label>
+            <label class="za-radio" data-name="gender" data-value="female" data-checked="false" style="margin-top: 2vw;">
+                <div class="za-radio-input"></div>
+                <span class="za-radio-label">女</span>
+            </label>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Progress 进度条 -->
+    <div class="demo-section">
+        <div class="demo-title">Progress 进度条</div>
+        <div class="za-progress">
+            <div class="za-progress-bar" style="width: 30%;"></div>
+        </div>
+        <div class="za-progress-text">30%</div>
+        
+        <div class="za-progress" style="margin-top: 3vw;">
+            <div class="za-progress-bar" style="width: 70%;"></div>
+        </div>
+        <div class="za-progress-text">70%</div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Badge 徽章 -->
+    <div class="demo-section">
+        <div class="demo-title">Badge 徽章</div>
+        <div class="demo-row">
+            <div class="za-badge">
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">notifications</i>
+                </button>
+                <span class="za-badge-dot"></span>
+            </div>
+            
+            <div class="za-badge">
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">message</i>
+                </button>
+                <span class="za-badge-count">5</span>
+            </div>
+            
+            <div class="za-badge">
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">email</i>
+                </button>
+                <span class="za-badge-count">99+</span>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Navbar 导航栏 -->
+    <div class="demo-section">
+        <div class="demo-title">Navbar 导航栏</div>
+        <div style="position: relative; height: 15vw; background: var(--shadow-color); border-radius: 2.5vw; overflow: hidden;">
+            <div class="za-navbar" style="position: absolute;">
+                <div class="za-navbar-left">
+                    <button class="za-icon-button">
+                        <i class="za-icon za-icon-md">arrow_back</i>
+                    </button>
+                </div>
+                <div class="za-navbar-title">页面标题</div>
+                <div class="za-navbar-right">
+                    <button class="za-icon-button">
+                        <i class="za-icon za-icon-md">more_vert</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Notification 通知 -->
+    <div class="demo-section">
+        <div class="demo-title">Notification 通知</div>
+        <div class="demo-row">
+            <button class="za-button" onclick="showNotification('info')">信息通知</button>
+            <button class="za-button" onclick="showNotification('success')">成功通知</button>
+        </div>
+        <div class="demo-row">
+            <button class="za-button" onclick="showNotification('warning')">警告通知</button>
+            <button class="za-button" onclick="showNotification('error')">错误通知</button>
+        </div>
+        <div class="demo-row">
+            <button class="za-button" onclick="showNotificationWithAction()">带操作按钮</button>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Tab 选项卡 -->
+    <div class="demo-section">
+        <div class="demo-title">Tab 选项卡</div>
+
+        <!-- 基础选项卡 -->
+        <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">基础</div>
+        <div class="za-tabs">
+            <div class="za-tabs-header">
+                <div class="za-tab-item">首页</div>
+                <div class="za-tab-item">发现</div>
+                <div class="za-tab-item">消息</div>
+                <div class="za-tab-item">我的</div>
+                <div class="za-tabs-indicator"></div>
+            </div>
+            <div class="za-tabs-content">
+                <div class="za-tab-pane">
+                    <div class="za-card">
+                        <div class="za-card-title">首页内容</div>
+                        <div class="za-card-content">这是首页的内容区域</div>
+                    </div>
+                </div>
+                <div class="za-tab-pane">
+                    <div class="za-card">
+                        <div class="za-card-title">发现内容</div>
+                        <div class="za-card-content">这是发现页的内容区域</div>
+                    </div>
+                </div>
+                <div class="za-tab-pane">
+                    <div class="za-card">
+                        <div class="za-card-title">消息内容</div>
+                        <div class="za-card-content">这是消息页的内容区域</div>
+                    </div>
+                </div>
+                <div class="za-tab-pane">
+                    <div class="za-card">
+                        <div class="za-card-title">我的内容</div>
+                        <div class="za-card-content">这是我的页面内容区域</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 卡片式选项卡 -->
+        <div style="font-size: 3vw; color: var(--text-6); margin: 4vw 0 2vw;">卡片式</div>
+        <div class="za-tabs card">
+            <div class="za-tabs-header">
+                <div class="za-tab-item">全部</div>
+                <div class="za-tab-item">进行中</div>
+                <div class="za-tab-item">已完成</div>
+                <div class="za-tabs-indicator"></div>
+            </div>
+            <div class="za-tabs-content">
+                <div class="za-tab-pane">
+                    <div class="za-list-item">
+                        <div class="za-list-item-label-wrap">
+                            <div class="za-list-item-label">任务 A</div>
+                            <div class="za-list-item-desc">进行中</div>
+                        </div>
+                    </div>
+                    <div class="za-list-item">
+                        <div class="za-list-item-label-wrap">
+                            <div class="za-list-item-label">任务 B</div>
+                            <div class="za-list-item-desc">已完成</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="za-tab-pane">
+                    <div class="za-list-item">
+                        <div class="za-list-item-label-wrap">
+                            <div class="za-list-item-label">任务 A</div>
+                            <div class="za-list-item-desc">进行中</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="za-tab-pane">
+                    <div class="za-list-item">
+                        <div class="za-list-item-label-wrap">
+                            <div class="za-list-item-label">任务 B</div>
+                            <div class="za-list-item-desc">已完成</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 带图标的选项卡 -->
+        <div style="font-size: 3vw; color: var(--text-6); margin: 4vw 0 2vw;">带图标</div>
+        <div class="za-tabs">
+            <div class="za-tabs-header">
+                <div class="za-tab-item">
+                    <div class="za-tab-item-icon">
+                        <i class="za-icon">home</i>
+                        <span>首页</span>
+                    </div>
+                </div>
+                <div class="za-tab-item">
+                    <div class="za-tab-item-icon">
+                        <i class="za-icon">search</i>
+                        <span>搜索</span>
+                    </div>
+                </div>
+                <div class="za-tab-item">
+                    <div class="za-tab-item-icon">
+                        <i class="za-icon">notifications</i>
+                        <span>通知</span>
+                    </div>
+                </div>
+                <div class="za-tab-item">
+                    <div class="za-tab-item-icon">
+                        <i class="za-icon">person</i>
+                        <span>我的</span>
+                    </div>
+                </div>
+                <div class="za-tabs-indicator"></div>
+            </div>
+            <div class="za-tabs-content">
+                <div class="za-tab-pane">首页内容</div>
+                <div class="za-tab-pane">搜索内容</div>
+                <div class="za-tab-pane">通知内容</div>
+                <div class="za-tab-pane">我的内容</div>
+            </div>
+        </div>
+
+        <!-- 可滚动选项卡 -->
+        <div style="font-size: 3vw; color: var(--text-6); margin: 4vw 0 2vw;">可滚动</div>
+        <div class="za-tabs">
+            <div class="za-tabs-header scrollable">
+                <div class="za-tab-item">推荐</div>
+                <div class="za-tab-item">热点</div>
+                <div class="za-tab-item">科技</div>
+                <div class="za-tab-item">体育</div>
+                <div class="za-tab-item">娱乐</div>
+                <div class="za-tab-item">财经</div>
+                <div class="za-tab-item">游戏</div>
+                <div class="za-tab-item">汽车</div>
+                <div class="za-tabs-indicator"></div>
+            </div>
+            <div class="za-tabs-content">
+                <div class="za-tab-pane">推荐内容</div>
+                <div class="za-tab-pane">热点内容</div>
+                <div class="za-tab-pane">科技内容</div>
+                <div class="za-tab-pane">体育内容</div>
+                <div class="za-tab-pane">娱乐内容</div>
+                <div class="za-tab-pane">财经内容</div>
+                <div class="za-tab-pane">游戏内容</div>
+                <div class="za-tab-pane">汽车内容</div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Page Transition 页面切换动画 -->
+    <div class="demo-section">
+        <div class="demo-title">Page Transition 页面切换动画</div>
+        <div class="demo-row">
+            <button class="za-button" onclick="showPageDemo('fade')">淡入淡出</button>
+            <button class="za-button" onclick="showPageDemo('slide-right')">右滑进入</button>
+        </div>
+        <div class="demo-row">
+            <button class="za-button" onclick="showPageDemo('slide-up')">底部滑入</button>
+            <button class="za-button" onclick="showPageDemo('scale')">缩放淡入</button>
+        </div>
+    </div>
+
+    <script src="js/components.js"></script>
+    <script>
+        // 主题切换
+        function toggleTheme() {
+            const newTheme = ZA.toggleTheme();
+            ZA.toast(`已切换到${newTheme === 'dark' ? '暗色' : '亮色'}主题`);
+        }
+
+        // 模态框示例1
+        function showModal1() {
+            ZA.modal({
+                title: '提示',
+                content: '这是一个基础的模态框示例',
+                confirmText: '确定',
+                cancelText: '取消',
+                onConfirm: () => {
+                    ZA.toast('点击了确定');
+                },
+                onCancel: () => {
+                    ZA.toast('点击了取消');
+                }
+            });
+        }
+
+        // 模态框示例2
+        function showModal2() {
+            const content = document.createElement('div');
+            content.innerHTML = `
+                <div style="padding: 2.5vw 0;">
+                    <div style="font-size: 3vw; line-height: 4.5vw; color: var(--text-secondary-color);">
+                        这是自定义的模态框内容，可以包含任意HTML元素。
+                    </div>
+                    <div style="margin-top: 2vw;">
+                        <div class="za-list-item">
+                            <div class="za-list-item-label-wrap">
+                                <div class="za-list-item-label">选项1</div>
+                            </div>
+                        </div>
+                        <div class="za-list-item">
+                            <div class="za-list-item-label-wrap">
+                                <div class="za-list-item-label">选项2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            ZA.modal({
+                title: '自定义内容',
+                content: content,
+                confirmText: '知道了',
+                showFooter: true
+            });
+        }
+
+        // 监听开关变化
+        document.querySelectorAll('.za-switch').forEach(switchEl => {
+            switchEl.addEventListener('change', (e) => {
+                ZA.toast(`开关已${e.detail.checked ? '开启' : '关闭'}`);
+            });
+        });
+
+        // 监听复选框变化
+        document.querySelectorAll('.za-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const label = checkbox.querySelector('.za-checkbox-label').textContent;
+                ZA.toast(`${label} ${e.detail.checked ? '已选中' : '已取消'}`);
+            });
+        });
+
+        // 监听单选框变化
+        document.querySelectorAll('.za-radio').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const label = radio.querySelector('.za-radio-label').textContent;
+                ZA.toast(`已选择：${label}`);
+            });
+        });
+        
+        // 监听下拉选择变化
+        document.querySelectorAll('.za-select-wrapper select').forEach(select => {
+            select.addEventListener('change', (e) => {
+                const selectedOption = e.target.options[e.target.selectedIndex];
+                if (selectedOption.value) {
+                    ZA.toast(`已选择：${selectedOption.text}`);
+                }
+            });
+        });
+
+        // 通知演示
+        function showNotification(type) {
+            const messages = {
+                info: '这是一条信息通知',
+                success: '操作成功！',
+                warning: '请注意检查',
+                error: '操作失败，请重试'
+            };
+            
+            ZA.notification({
+                message: messages[type],
+                type: type,
+                duration: 3000,
+                closable: true
+            });
+        }
+        
+        // 带操作按钮的通知
+        function showNotificationWithAction() {
+            ZA.notification({
+                message: '文件已删除',
+                type: 'info',
+                duration: 5000,
+                closable: true,
+                actionText: '撤销',
+                onAction: () => {
+                    ZA.toast('已撤销删除');
+                }
+            });
+        }
+        
+        window.showNotification = showNotification;
+        window.showNotificationWithAction = showNotificationWithAction;
+        
+        // 页面切换动画演示
+        function showPageDemo(animation) {
+            const pageHTML = `
+                <div style="padding: 4vw; min-height: 100vh; background: var(--background-color);">
+                    <div style="display: flex; align-items: center; margin-bottom: 4vw; padding: 3vw 0;">
+                        <button class="za-icon-button" data-page-back style="pointer-events: auto;">
+                            <i class="za-icon za-icon-md">arrow_back</i>
+                        </button>
+                        <span style="font-size: 4.5vw; margin-left: 2vw; color: var(--text-title-color); font-family: mipro-medium, miui-bold, mipro, miui;">
+                            ${animation} 动画
+                        </span>
+                    </div>
+                    
+                    <div class="za-card" style="margin-bottom: 3.703704vw;">
+                        <div class="za-card-title">页面切换动画</div>
+                        <div class="za-card-content">
+                            这是一个使用 ${animation} 动画切换的页面。点击左上角返回按钮可以返回上一页。<br><br>
+                            当前页面层级：<strong>${ZA.getPageCount() + 1}</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="za-card" style="margin-bottom: 3.703704vw;">
+                        <div class="za-card-title">继续测试</div>
+                        <div class="za-card-content">
+                            <button class="za-button za-button-primary" onclick="showPageDemo('slide-right')" style="width: 100%; margin-bottom: 2vw;">
+                                再打开一个页面（右滑）
+                            </button>
+                            <button class="za-button" onclick="showPageDemo('slide-up')" style="width: 100%; margin-bottom: 2vw;">
+                                底部滑入页面
+                            </button>
+                            <button class="za-button" onclick="showPageDemo('fade')" style="width: 100%; margin-bottom: 2vw;">
+                                淡入页面
+                            </button>
+                            <button class="za-button" onclick="showPageDemo('scale')" style="width: 100%;">
+                                缩放页面
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 3.703704vw;">
+                        <div class="za-list-item za-list-item-animate">
+                            <div class="za-list-item-label-wrap">
+                                <div class="za-list-item-label">列表项 1</div>
+                                <div class="za-list-item-desc">带有进入动画</div>
+                            </div>
+                            <img class="za-list-item-arrow" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z' fill='%23999'/%3E%3C/svg%3E" alt="">
+                        </div>
+                        <div class="za-list-item za-list-item-animate">
+                            <div class="za-list-item-label-wrap">
+                                <div class="za-list-item-label">列表项 2</div>
+                                <div class="za-list-item-desc">延迟 0.05s</div>
+                            </div>
+                            <img class="za-list-item-arrow" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z' fill='%23999'/%3E%3C/svg%3E" alt="">
+                        </div>
+                        <div class="za-list-item za-list-item-animate">
+                            <div class="za-list-item-label-wrap">
+                                <div class="za-list-item-label">列表项 3</div>
+                                <div class="za-list-item-desc">延迟 0.1s</div>
+                            </div>
+                            <img class="za-list-item-arrow" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z' fill='%23999'/%3E%3C/svg%3E" alt="">
+                        </div>
+                        <div class="za-list-item za-list-item-animate">
+                            <div class="za-list-item-label-wrap">
+                                <div class="za-list-item-label">列表项 4</div>
+                                <div class="za-list-item-desc">延迟 0.15s</div>
+                            </div>
+                            <img class="za-list-item-arrow" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z' fill='%23999'/%3E%3C/svg%3E" alt="">
+                        </div>
+                        <div class="za-list-item za-list-item-animate">
+                            <div class="za-list-item-label-wrap">
+                                <div class="za-list-item-label">列表项 5</div>
+                                <div class="za-list-item-desc">延迟 0.2s</div>
+                            </div>
+                            <img class="za-list-item-arrow" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z' fill='%23999'/%3E%3C/svg%3E" alt="">
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            ZA.showPage(pageHTML, {
+                animation: animation,
+                onEnter: () => {
+                    console.log('页面已进入，当前层级：', ZA.getPageCount());
+                }
+            });
+        }
+        
+        window.showPageDemo = showPageDemo;
+    </script>
+</body>
+</html>
+
+    <hr class="demo-divider">
+
+    <!-- Appbar 应用栏 -->
+    <div class="demo-section">
+        <div class="demo-title">Appbar 应用栏</div>
+        <div style="position: relative; height: 18vw; background: var(--shadow-color); border-radius: 2.5vw; overflow: hidden;">
+            <div class="za-appbar" style="position: absolute;">
+                <div class="za-toolbar">
+                    <button class="za-icon-button">
+                        <i class="za-icon za-icon-md">menu</i>
+                    </button>
+                    <span class="za-toolbar-title">应用标题</span>
+                    <div class="za-toolbar-spacer"></div>
+                    <button class="za-icon-button">
+                        <i class="za-icon za-icon-md">search</i>
+                    </button>
+                    <button class="za-icon-button">
+                        <i class="za-icon za-icon-md">more_vert</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Panel 折叠面板 -->
+    <div class="demo-section">
+        <div class="demo-title">Panel 折叠面板</div>
+        <div class="za-panel" data-accordion="true">
+            <div class="za-panel-item">
+                <div class="za-panel-item-header">面板标题 1</div>
+                <div class="za-panel-item-body">
+                    <div class="za-panel-item-body-inner">
+                        <p>这是第一个面板的内容。</p>
+                        <p>可以包含多行文本和其他元素。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="za-panel-item">
+                <div class="za-panel-item-header">面板标题 2</div>
+                <div class="za-panel-item-body">
+                    <div class="za-panel-item-body-inner">
+                        <p>这是第二个面板的内容。</p>
+                        <p>点击标题可以展开或折叠面板。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="za-panel-item">
+                <div class="za-panel-item-header">面板标题 3</div>
+                <div class="za-panel-item-body">
+                    <div class="za-panel-item-body-inner">
+                        <p>这是第三个面板的内容。</p>
+                        <p>手风琴模式下，同时只能展开一个面板。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Select 下拉选择 -->
+    <div class="demo-section">
+        <div class="demo-title">Select 下拉选择</div>
+        <div class="za-select-wrapper">
+            <select>
+                <option value="">请选择城市</option>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="guangzhou">广州</option>
+                <option value="shenzhen">深圳</option>
+                <option value="hangzhou">杭州</option>
+                <option value="chengdu">成都</option>
+            </select>
+        </div>
+        
+        <div class="za-select-wrapper" style="margin-top: 3vw;">
+            <select>
+                <option value="">请选择水果</option>
+                <option value="apple">苹果 🍎</option>
+                <option value="banana">香蕉 🍌</option>
+                <option value="orange">橙子 🍊</option>
+                <option value="grape">葡萄 🍇</option>
+                <option value="watermelon">西瓜 🍉</option>
+            </select>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Spinner 加载动画 -->
+    <div class="demo-section">
+        <div class="demo-title">Spinner 加载动画</div>
+        <div class="demo-row">
+            <div class="za-spinner za-spinner-colorful">
+                <div class="za-spinner-layer">
+                    <div class="za-spinner-circle"></div>
+                </div>
+                <div class="za-spinner-layer">
+                    <div class="za-spinner-circle"></div>
+                </div>
+                <div class="za-spinner-layer">
+                    <div class="za-spinner-circle"></div>
+                </div>
+                <div class="za-spinner-layer">
+                    <div class="za-spinner-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Slider 滑块 -->
+    <div class="demo-section">
+        <div class="demo-title">Slider 滑块</div>
+        <div class="za-slider" data-min="0" data-max="100" data-value="50">
+            <div class="za-slider-track"></div>
+            <div class="za-slider-thumb"></div>
+        </div>
+        <div class="za-slider-value">50</div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Tooltip 工具提示 -->
+    <div class="demo-section">
+        <div class="demo-title">Tooltip 工具提示</div>
+        <div class="demo-row">
+            <div class="za-tooltip">
+                <button class="za-button">悬停查看提示</button>
+                <div class="za-tooltip-content">这是一个提示</div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Ripple 波纹效果 -->
+    <div class="demo-section">
+        <div class="demo-title">Ripple 波纹效果</div>
+        <div class="demo-row">
+            <button class="za-button za-button-primary za-ripple">
+                点击查看波纹
+            </button>
+        </div>
+    </div>
+
+    <hr class="demo-divider">
+
+    <!-- Grid 栅格系统 -->
+    <div class="demo-section">
+        <div class="demo-title">Grid 栅格系统</div>
+        <div class="za-container">
+            <div class="za-row" style="gap: 3.703704vw;">
+                <div class="za-col za-col-12 za-col-sm-6 za-col-md-4">
+                    <div class="za-card">
+                        <div class="za-card-title">卡片 1</div>
+                        <div class="za-card-content">这是第一列的内容</div>
+                    </div>
+                </div>
+                <div class="za-col za-col-12 za-col-sm-6 za-col-md-4">
+                    <div class="za-card">
+                        <div class="za-card-title">卡片 2</div>
+                        <div class="za-card-content">这是第二列的内容</div>
+                    </div>
+                </div>
+                <div class="za-col za-col-12 za-col-sm-6 za-col-md-4">
+                    <div class="za-card">
+                        <div class="za-card-title">卡片 3</div>
+                        <div class="za-card-content">这是第三列的内容</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="za-row" style="gap: 3.703704vw; margin-top: 3.703704vw;">
+                <div class="za-col za-col-6 za-col-sm-3 za-col-md-3">
+                    <div class="za-card">
+                        <div class="za-card-content" style="text-align: center;">1/4</div>
+                    </div>
+                </div>
+                <div class="za-col za-col-6 za-col-sm-3 za-col-md-3">
+                    <div class="za-card">
+                        <div class="za-card-content" style="text-align: center;">1/4</div>
+                    </div>
+                </div>
+                <div class="za-col za-col-6 za-col-sm-3 za-col-md-3">
+                    <div class="za-card">
+                        <div class="za-card-content" style="text-align: center;">1/4</div>
+                    </div>
+                </div>
+                <div class="za-col za-col-6 za-col-sm-3 za-col-md-3">
+                    <div class="za-card">
+                        <div class="za-card-content" style="text-align: center;">1/4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

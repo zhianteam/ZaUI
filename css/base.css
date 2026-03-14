@@ -1,0 +1,287 @@
+/* 致安组件库 - 基础样式 */
+
+/* ========== CSS Reset ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html, body {
+    touch-action: none;
+    -webkit-overflow-scrolling: auto;
+}
+
+body {
+    font-family: mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    line-height: 1;
+    color: #333;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a[href]:active {
+    background-color: rgba(0, 0, 0, 0.08);
+    transform: scale(0.95);
+}
+
+button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.04);
+    outline: none;
+    font-family: inherit;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+/* ========== 主题变量 ========== */
+[data-theme=light] {
+    /* 背景色 */
+    --background-color: #fff;
+    --shadow-color: #fbfbfb;
+    
+    /* 文字颜色 */
+    --text-0: #000;
+    --text-9: rgba(0, 0, 0, 0.9);
+    --text-8: rgba(0, 0, 0, 0.8);
+    --text-7: rgba(0, 0, 0, 0.7);
+    --text-6: rgba(0, 0, 0, 0.6);
+    --text-5: rgba(0, 0, 0, 0.5);
+    --text-4: rgba(0, 0, 0, 0.4);
+    --text-3: rgba(0, 0, 0, 0.3);
+    --text-2: rgba(0, 0, 0, 0.2);
+    --text-1: rgba(0, 0, 0, 0.1);
+    
+    --text-title-color: #000;
+    --text-primary-color: #000;
+    --text-secondary-color: rgba(0, 0, 0, 0.5);
+    --text-desc: rgba(0, 0, 0, 0.7);
+    --text-disable: #ccc;
+    
+    /* 主题色 */
+    --theme-color: #0d84ff;
+    --theme-color-light: rgba(13, 132, 255, 0.1);
+    --theme-color-grey: #8c93b0;
+    --darken-theme-color: #004c80;
+    --header-color1: #1e8cff;
+    --header-color2: #30adff;
+    
+    /* 分割线 */
+    --divider-color: rgba(0, 0, 0, 0.1);
+    --line-color: rgba(0, 0, 0, 0.1);
+    
+    /* 按钮 */
+    --button-background-color: rgba(0, 0, 0, 0.06);
+    --button-text: var(--text-7);
+    --btn-background-color: rgba(0, 0, 0, 0.06);
+    
+    /* 图标 */
+    --icon-color: #000;
+    --filter-value: invert(0%);
+    
+    /* 系统色 */
+    --system-red: #f22424;
+    --system-red-background: rgba(242, 36, 36, 0.1);
+    --system-yellow: #ffbb00;
+    --system-yellow-background: rgba(255, 187, 0, 0.1);
+    
+    /* 文字扩展 */
+    --darken-text-desc: rgba(0, 0, 0, 0.35);
+    
+    /* Toast */
+    --toast-background: #fff;
+    --toast-border: rgba(0, 0, 0, 0.06);
+    
+    /* Modal */
+    --modal-background-color: #fff;
+    
+    /* Card */
+    --card-background: #fff;
+    --card-shadow: 0 3.703704vw 7.407407vw rgba(0, 0, 0, 0.05), 0 4.62963vw 9.259259vw rgba(0, 0, 0, 0.05);
+
+    /* 扩展变量 */
+    --toolbox-background-color: #fff;
+    --quick-background: #fff;
+    --placeholder: #f6f6f6;
+    --guide-section-color: #e7f3ff;
+    --center-text: var(--text-8);
+}
+
+[data-theme=dark] {
+    /* 背景色 */
+    --background-color: #000;
+    --shadow-color: #191919;
+    
+    /* 文字颜色 */
+    --text-0: #fff;
+    --text-9: hsla(0, 0%, 100%, 0.9);
+    --text-8: hsla(0, 0%, 100%, 0.8);
+    --text-7: hsla(0, 0%, 100%, 0.7);
+    --text-6: hsla(0, 0%, 100%, 0.6);
+    --text-5: hsla(0, 0%, 100%, 0.5);
+    --text-4: hsla(0, 0%, 100%, 0.4);
+    --text-3: hsla(0, 0%, 100%, 0.3);
+    --text-2: hsla(0, 0%, 100%, 0.2);
+    --text-1: hsla(0, 0%, 100%, 0.1);
+    
+    --text-title-color: #fff;
+    --text-primary-color: hsla(0, 0%, 100%, 0.7);
+    --text-secondary-color: hsla(0, 0%, 100%, 0.5);
+    --text-desc: hsla(0, 0%, 100%, 0.7);
+    --text-disable: #535353;
+    
+    /* 主题色 */
+    --theme-color: #0073dd;
+    --theme-color-light: rgba(84, 146, 240, 0.3);
+    --theme-color-grey: #8c93b0;
+    --darken-theme-color: #004f99;
+    --header-color1: #20378c;
+    --header-color2: #4a5195;
+    
+    /* 分割线 */
+    --divider-color: hsla(0, 0%, 100%, 0.1);
+    --line-color: hsla(0, 0%, 100%, 0.1);
+    
+    /* 按钮 */
+    --button-background-color: hsla(0, 0%, 100%, 0.1);
+    --button-text: var(--text-8);
+    --btn-background-color: hsla(0, 0%, 100%, 0.04);
+    
+    /* 图标 */
+    --icon-color: hsla(0, 0%, 100%, 0.8);
+    --filter-value: invert(68%);
+    
+    /* 系统色 */
+    --system-red: #f22424;
+    --system-red-background: rgba(242, 36, 36, 0.1);
+    --system-yellow: #ffbb00;
+    --system-yellow-background: rgba(255, 187, 0, 0.1);
+    
+    /* 文字扩展 */
+    --darken-text-desc: hsla(0, 0%, 100%, 0.35);
+    
+    /* Toast */
+    --toast-background: #222224;
+    --toast-border: transparent;
+    
+    /* Modal */
+    --modal-background-color: #222224;
+    
+    /* Card */
+    --card-background: #222224;
+    --card-shadow: 0 3.703704vw 7.407407vw rgba(0, 0, 0, 0.05), 0 4.62963vw 9.259259vw rgba(0, 0, 0, 0.05);
+
+    /* 扩展变量 */
+    --toolbox-background-color: #222224;
+    --quick-background: #222224;
+    --placeholder: #222224;
+    --guide-section-color: #192c48;
+    --center-text: var(--text-0);
+}
+
+/* ========== 字体系统 ========== */
+.font-thin {
+    font-family: mipro-thin, miui-thin, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 150;
+}
+
+.font-extralight {
+    font-family: mipro-extralight, miui-thin, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 200;
+}
+
+.font-light {
+    font-family: mipro-light, miui-light, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 250;
+}
+
+.font-normal {
+    font-family: mipro-normal, miui-light, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 305;
+}
+
+.font-regular {
+    font-family: mipro, miui-regular, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 340;
+}
+
+.font-medium {
+    font-family: mipro-medium, miui-bold, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 400;
+}
+
+.font-demibold {
+    font-family: mipro-demibold, miui-bold, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 480;
+}
+
+.font-semibold {
+    font-family: mipro-semibold, miui-regular, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 540;
+}
+
+.font-bold {
+    font-family: mipro-bold, miui-medium, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 630;
+}
+
+.font-heavy {
+    font-family: mipro-heavy, miui-medium, mipro, miui, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 700;
+}
+
+/* ========== 工具类 ========== */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
