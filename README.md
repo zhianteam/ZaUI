@@ -1,10 +1,13 @@
 # 致安组件库 (ZaUI)
 
 基于小米 MIUI 设计语言的轻量级前端组件库。零依赖，纯 CSS + JS，支持完整亮色/暗色主题，使用 `vw` 单位实现精准响应式布局。
-UI DEMO https://zaui.zhian.org/demo.html
-UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
+
 ---
 
+UI DEMO https://zaui.zhian.org/demo.html
+UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
+
+---
 ## 文件结构
 
 ```
