@@ -1,33 +1,24 @@
 # 致安组件库 (ZaUI)
 
-基于小米 MIUI 设计语言的轻量级前端组件库。零依赖，纯 CSS + JS，支持完整亮色/暗色主题，使用 `vw` 单位实现精准响应式布局。
+基于小米 MIUI 设计语言的轻量级前端组件库。零依赖，纯 CSS + JS，完整亮色/暗色主题，使用 `vw` 单位实现精准响应式布局。
 
 ---
 
-UI DEMO https://zaui.zhian.org/demo.html
-UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
+## 特性
 
----
-## 文件结构
-
-```
-组件库/
-├── css/
-│   ├── base.css              # CSS 变量、主题、字体、全局重置
-│   ├── icons.css             # 图标系统（Material Symbols Rounded，本地字体）
-│   ├── components.css        # 核心组件样式
-│   └── components-extra.css  # 扩展组件样式
-├── js/
-│   └── components.js         # 所有组件的 JS 逻辑，暴露 ZA 全局对象
-├── demo.html                 # 完整组件演示
-└── page-transition-test.html # 页面切换动画专项测试
-```
+- 🎨 **小米MIUI设计** - 完全对齐小米设计规范
+- 🚀 **零依赖** - 纯CSS + 原生JavaScript
+- 🌓 **完整主题** - 亮色/暗色主题自动切换
+- 📱 **响应式** - vw单位 + 3个断点（手机/平板/桌面）
+- 🎭 **Material Icons** - Material Symbols Rounded 图标系统
+- ⚡ **流畅动画** - 统一的缓动函数和交互反馈
 
 ---
 
 ## 快速开始
 
 ```html
+<!DOCTYPE html>
 <html lang="zh-CN" data-theme="light">
 <head>
     <link rel="stylesheet" href="css/base.css">
@@ -37,43 +28,63 @@ UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
 </head>
 <body>
     <!-- 你的内容 -->
+    <button class="za-button za-button-primary">按钮</button>
+    
     <script src="js/components.js"></script>
 </body>
+</html>
 ```
 
-主题值：`light` | `dark`，切换时修改 `<html data-theme="">` 即可。
+主题切换：修改 `<html data-theme="light">` 为 `dark` 或使用 `ZA.toggleTheme()`
+
+---
+
+## 文件结构
+
+```
+组件库/
+├── css/
+│   ├── base.css              # CSS变量、主题、字体、全局重置
+│   ├── icons.css             # Material Symbols Rounded 图标
+│   ├── components.css        # 核心组件样式
+│   └── components-extra.css  # 扩展组件样式
+├── js/
+│   └── components.js         # 组件逻辑（暴露 ZA 全局对象）
+├── demo.html                 # 完整组件演示
+└── page-transition-test.html # 页面切换动画测试
+```
 
 ---
 
 ## 响应式断点
 
-| 范围 | 单位 |
-|------|------|
-| < 670px（手机） | `vw` |
-| 670px – 900px（平板） | `vw`（缩小系数） |
-| > 900px（桌面） | `px` |
+| 设备 | 断点 | 单位 |
+|------|------|------|
+| 手机 | < 670px | vw |
+| 平板 | 670px - 900px | vw（缩小） |
+| 桌面 | > 900px | px |
 
 ---
 
-## 组件
+## 核心组件
 
 ### Button 按钮
 
 ```html
-<button class="za-button">默认</button>
-<button class="za-button za-button-primary">主要</button>
+<button class="za-button">默认按钮</button>
+<button class="za-button za-button-primary">主要按钮</button>
 <button class="za-button za-button-small">小按钮</button>
-<button class="za-button za-button-disable">禁用</button>
+<button class="za-button za-button-disable">禁用按钮</button>
 ```
 
 ---
 
 ### Icon 图标
 
-图标系统基于 **Material Symbols Rounded**（本地字体，无需联网）。
+基于 **Material Symbols Rounded**，本地字体无需联网。
 
 ```html
-<!-- 基础用法：类名控制尺寸，文字内容为图标名 -->
+<!-- 基础用法 -->
 <i class="za-icon za-icon-md">home</i>
 <i class="za-icon za-icon-md">arrow_back</i>
 <i class="za-icon za-icon-md">close</i>
@@ -100,13 +111,13 @@ UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
 <i class="za-icon za-icon-md za-icon-white">close</i>
 ```
 
-**填充风格（实心）**
+**填充样式（实心）**
 
 ```html
 <i class="za-icon za-icon-md za-icon-filled">favorite</i>
 ```
 
-**旋转动画（loading）**
+**加载动画**
 
 ```html
 <i class="za-icon za-icon-md za-icon-loading">refresh</i>
@@ -119,35 +130,26 @@ UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
     <i class="za-icon za-icon-md">arrow_back</i>
 </button>
 
-<!-- 主色背景 -->
 <button class="za-icon-button za-icon-button-primary">
     <i class="za-icon za-icon-md za-icon-white">check</i>
 </button>
 ```
 
-**常用图标速查**
+**常用图标**
 
-| 用途 | 图标名 |
-|------|--------|
-| 返回 | `arrow_back` |
-| 右箭头 | `chevron_right` |
-| 关闭 | `close` |
-| 确认 | `check` |
-| 添加 | `add` |
-| 删除 | `delete` |
-| 编辑 | `edit` |
-| 更多 | `more_vert` |
-| 搜索 | `search` |
-| 菜单 | `menu` |
-| 首页 | `home` |
-| 设置 | `settings` |
-| 用户 | `person` |
-| 通知 | `notifications` |
-| 拍照 | `camera_alt` |
-| 上传 | `upload` |
-| 刷新 | `refresh` |
+| 用途 | 图标名 | 用途 | 图标名 |
+|------|--------|------|--------|
+| 返回 | `arrow_back` | 右箭头 | `chevron_right` |
+| 关闭 | `close` | 确认 | `check` |
+| 添加 | `add` | 删除 | `delete` |
+| 编辑 | `edit` | 更多 | `more_vert` |
+| 搜索 | `search` | 菜单 | `menu` |
+| 首页 | `home` | 设置 | `settings` |
+| 用户 | `person` | 通知 | `notifications` |
+| 拍照 | `camera_alt` | 上传 | `upload` |
+| 刷新 | `refresh` | 收藏 | `favorite` |
 
-完整图标列表：[fonts.google.com/icons](https://fonts.google.com/icons?icon.style=Rounded)
+完整图标：[fonts.google.com/icons](https://fonts.google.com/icons?icon.style=Rounded)
 
 ---
 
@@ -171,7 +173,6 @@ UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
         <div class="za-list-item-desc">描述文字</div>
     </div>
     <div class="za-list-item-slot">右侧内容</div>
-    <!-- 右箭头（SVG inline 或用 za-icon） -->
     <img class="za-list-item-arrow" src="..." alt="">
 </div>
 ```
@@ -181,7 +182,6 @@ UI 切换动画测试 https://zaui.zhian.org/page-transition-test.html
 ### Switch 开关
 
 ```html
-<!-- data-checked 控制初始状态 -->
 <div class="za-switch" data-checked="false">
     <div class="za-switch-point"></div>
 </div>
@@ -202,7 +202,7 @@ switchEl.addEventListener('change', (e) => {
 ```html
 <div class="za-input-group">
     <label class="za-input-label">用户名</label>
-    <input type="text" class="za-input" placeholder="请输入">
+    <input type="text" class="za-input" placeholder="请输入用户名">
 </div>
 ```
 
@@ -217,14 +217,6 @@ switchEl.addEventListener('change', (e) => {
 </label>
 ```
 
-监听变化：
-
-```javascript
-checkbox.addEventListener('change', (e) => {
-    console.log(e.detail.checked);
-});
-```
-
 ---
 
 ### Radio 单选框
@@ -234,35 +226,6 @@ checkbox.addEventListener('change', (e) => {
     <div class="za-radio-input"></div>
     <span class="za-radio-label">选项 A</span>
 </label>
-<label class="za-radio" data-name="group1" data-value="b" data-checked="false">
-    <div class="za-radio-input"></div>
-    <span class="za-radio-label">选项 B</span>
-</label>
-```
-
----
-
-### Select 下拉选择
-
-```html
-<div class="za-select-wrapper">
-    <select>
-        <option value="">请选择</option>
-        <option value="1">选项 1</option>
-    </select>
-</div>
-```
-
----
-
-### Slider 滑块
-
-```html
-<div class="za-slider" data-min="0" data-max="100" data-value="50">
-    <div class="za-slider-track"></div>
-    <div class="za-slider-thumb"></div>
-</div>
-<div class="za-slider-value">50</div>
 ```
 
 ---
@@ -347,27 +310,26 @@ checkbox.addEventListener('change', (e) => {
 
 ---
 
-### Appbar 应用栏
+### Loading 加载
 
 ```html
-<div class="za-appbar">
-    <div class="za-toolbar">
-        <button class="za-icon-button">
-            <i class="za-icon za-icon-md">menu</i>
-        </button>
-        <span class="za-toolbar-title">应用标题</span>
-        <div class="za-toolbar-spacer"></div>
-        <button class="za-icon-button">
-            <i class="za-icon za-icon-md">search</i>
-        </button>
-        <button class="za-icon-button">
-            <i class="za-icon za-icon-md">more_vert</i>
-        </button>
-    </div>
+<!-- 简单三点加载 -->
+<div class="za-loading">
+    <div class="za-loading-point"></div>
+</div>
+
+<!-- 彩色圆形加载 -->
+<div class="za-spinner za-spinner-colorful">
+    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
+    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
+    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
+    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
 </div>
 ```
 
 ---
+
+## 扩展组件
 
 ### Tabs 选项卡
 
@@ -393,7 +355,7 @@ checkbox.addEventListener('change', (e) => {
 <!-- 卡片式 -->
 <div class="za-tabs card">...</div>
 
-<!-- 可滚动（标签过多时） -->
+<!-- 可滚动 -->
 <div class="za-tabs-header scrollable">...</div>
 
 <!-- 带图标 -->
@@ -410,14 +372,11 @@ checkbox.addEventListener('change', (e) => {
 ### Panel 折叠面板
 
 ```html
-<!-- data-accordion="true" 开启手风琴模式（同时只展开一个） -->
 <div class="za-panel" data-accordion="true">
     <div class="za-panel-item">
         <div class="za-panel-item-header">标题</div>
         <div class="za-panel-item-body">
-            <div class="za-panel-item-body-inner">
-                内容
-            </div>
+            <div class="za-panel-item-body-inner">内容</div>
         </div>
     </div>
 </div>
@@ -425,28 +384,19 @@ checkbox.addEventListener('change', (e) => {
 
 ---
 
-### Tooltip 工具提示
+### Slider 滑块
 
 ```html
-<div class="za-tooltip">
-    <button class="za-button">悬停查看</button>
-    <div class="za-tooltip-content">提示内容</div>
+<div class="za-slider" data-min="0" data-max="100" data-value="50">
+    <div class="za-slider-track"></div>
+    <div class="za-slider-thumb"></div>
 </div>
+<div class="za-slider-value">50</div>
 ```
 
 ---
 
-### Ripple 波纹效果
-
-```html
-<button class="za-button za-button-primary za-ripple">点击</button>
-```
-
----
-
-### Grid 栅格系统
-
-12 列栅格，支持响应式断点后缀 `-sm`（670px+）、`-md`（900px+）。
+### Grid 栅格
 
 ```html
 <div class="za-container">
@@ -460,47 +410,13 @@ checkbox.addEventListener('change', (e) => {
 
 ---
 
-### Loading / Spinner
-
-```html
-<!-- 简单三点加载 -->
-<div class="za-loading">
-    <div class="za-loading-point"></div>
-</div>
-
-<!-- 彩色圆形加载 -->
-<div class="za-spinner za-spinner-colorful">
-    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
-    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
-    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
-    <div class="za-spinner-layer"><div class="za-spinner-circle"></div></div>
-</div>
-```
-
----
-
-### 动画工具类
-
-```html
-<div class="za-animate-fade-in">淡入</div>
-<div class="za-animate-slide-up">上滑进入</div>
-<div class="za-animate-scale-in">缩放进入</div>
-
-<!-- 列表项依次进入（自动计算延迟） -->
-<div class="za-list-item za-list-item-animate">项目 1</div>
-<div class="za-list-item za-list-item-animate">项目 2</div>
-<div class="za-list-item za-list-item-animate">项目 3</div>
-```
-
----
-
 ## JavaScript API
 
 ### ZA.toast()
 
 ```javascript
 ZA.toast('消息内容');
-ZA.toast('消息内容', 3000); // 自定义持续时间（ms），默认 2000
+ZA.toast('消息内容', 3000); // 自定义持续时间（ms）
 ```
 
 ---
@@ -511,9 +427,9 @@ ZA.toast('消息内容', 3000); // 自定义持续时间（ms），默认 2000
 ZA.modal({
     title: '提示',
     content: '内容文字',          // 字符串或 DOM 元素
-    confirmText: '确定',          // 默认 '确定'
-    cancelText: '取消',           // 默认 '取消'
-    showFooter: true,             // 是否显示底部按钮，默认 true
+    confirmText: '确定',
+    cancelText: '取消',
+    showFooter: true,
     onConfirm: () => {},
     onCancel: () => {},
     onClose: () => {}
@@ -528,10 +444,10 @@ ZA.modal({
 ZA.notification({
     message: '操作成功',
     type: 'success',    // 'info' | 'success' | 'warning' | 'error'
-    duration: 3000,     // ms，默认 3000，设为 0 则不自动关闭
-    closable: true,     // 是否显示关闭按钮
-    actionText: '撤销', // 操作按钮文字（可选）
-    onAction: () => {}  // 操作按钮回调（可选）
+    duration: 3000,     // ms，0 = 不自动关闭
+    closable: true,
+    actionText: '撤销',
+    onAction: () => {}
 });
 ```
 
@@ -539,31 +455,28 @@ ZA.notification({
 
 ### ZA.showPage() / ZA.backPage()
 
-页面切换动画系统，支持多层页面堆叠。
+页面切换动画系统。
 
 ```javascript
 // 推入新页面
-ZA.showPage('<div>页面 HTML 内容</div>', {
+ZA.showPage('<div>页面内容</div>', {
     animation: 'slide-right', // 'fade' | 'slide-right' | 'slide-up' | 'scale'
     onEnter: () => {}
 });
-
-// 也可以传入 DOM 元素
-ZA.showPage(domElement, { animation: 'fade' });
 
 // 返回上一页
 ZA.backPage({
     onExit: () => {}
 });
 
-// 清空所有页面层
+// 清空所有页面
 ZA.clearPages();
 
-// 获取当前页面层数
-const count = ZA.getPageCount(); // number
+// 获取页面层数
+const count = ZA.getPageCount();
 ```
 
-在页面 HTML 内，给返回按钮加 `data-page-back` 属性即可自动绑定返回事件：
+页面内返回按钮：
 
 ```html
 <button class="za-icon-button" data-page-back>
@@ -578,25 +491,24 @@ const count = ZA.getPageCount(); // number
 ```javascript
 ZA.setTheme('dark');      // 'light' | 'dark'
 ZA.setTheme('light');
-ZA.toggleTheme();         // 在 light/dark 之间切换，返回新主题名
-const theme = ZA.getTheme(); // 'light' | 'dark'
+ZA.toggleTheme();         // 切换主题，返回新主题名
+const theme = ZA.getTheme(); // 获取当前主题
 ```
 
 ---
 
-## CSS 变量（主题定制）
+## CSS 变量
 
-主要变量定义在 `base.css` 的 `:root` 和 `[data-theme="dark"]` 中，可覆盖：
+主要变量定义在 `base.css`，可自定义覆盖：
 
 ```css
 :root {
-    --theme-color: #ff6900;          /* 主题色 */
-    --background-color: #f5f5f5;     /* 页面背景 */
-    --card-background-color: #fff;   /* 卡片背景 */
-    --text-title-color: #1a1a1a;     /* 标题文字 */
+    --theme-color: #0d84ff;          /* 主题色 */
+    --background-color: #fff;        /* 页面背景 */
+    --text-title-color: #000;        /* 标题文字 */
     --text-secondary-color: #666;    /* 次要文字 */
     --divider-color: #e8e8e8;        /* 分割线 */
-    --icon-color: #333;              /* 图标默认色 */
+    --icon-color: #333;              /* 图标颜色 */
 }
 ```
 
@@ -604,7 +516,22 @@ const theme = ZA.getTheme(); // 'light' | 'dark'
 
 ## 设计规范
 
-- 缓动函数：`cubic-bezier(0.3, 0, 0, 1)`
-- 按下反馈：`scale(0.98)` 或 `scale(0.95)`
-- 圆角：卡片 `3.703704vw`（桌面 `16px`），按钮 `2.314815vw`（桌面 `10px`）
-- 字体栈：`mipro-medium, miui-bold, mipro, miui, "PingFang SC", "Microsoft YaHei", sans-serif`
+- **缓动函数**: `cubic-bezier(0.3, 0, 0, 1)`
+- **按压反馈**: `scale(0.98)` 或 `scale(0.95)`
+- **圆角**: 卡片 `3.7vw` / 按钮 `9.3vw` (手机)
+- **字体**: `mipro-medium, miui-bold, mipro, miui, "PingFang SC", "Microsoft YaHei", sans-serif`
+
+---
+
+## 浏览器支持
+
+- Chrome / Edge (最新)
+- Safari (最新)
+- Firefox (最新)
+- 移动端浏览器
+
+---
+
+## 许可证
+
+MIT License

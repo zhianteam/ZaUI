@@ -302,29 +302,66 @@
             </div>
         </div>
         
+        <!-- 图标填充样式（新增） -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标填充样式</div>
+            <div class="demo-row">
+                <i class="za-icon za-icon-md">favorite</i>
+                <i class="za-icon za-icon-md za-icon-filled za-icon-danger">favorite</i>
+                <i class="za-icon za-icon-md">star</i>
+                <i class="za-icon za-icon-md za-icon-filled za-icon-warning">star</i>
+                <i class="za-icon za-icon-md">bookmark</i>
+                <i class="za-icon za-icon-md za-icon-filled za-icon-primary">bookmark</i>
+            </div>
+        </div>
+        
         <!-- 图标动画 -->
         <div style="margin-bottom: 3vw;">
-            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标动画</div>
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标加载动画 </div>
             <div class="demo-row">
                 <i class="za-icon za-icon-md za-icon-loading">refresh</i>
+                <i class="za-icon za-icon-md za-icon-loading za-icon-primary">sync</i>
+                <i class="za-icon za-icon-md za-icon-loading za-icon-success">autorenew</i>
             </div>
         </div>
         
         <!-- 图标按钮 -->
         <div style="margin-bottom: 3vw;">
-            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标按钮</div>
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标按钮 </div>
             <div class="demo-row">
-                <button class="za-icon-button" onclick="ZA.toast('点击了图标按钮')">
+                <button class="za-icon-button" onclick="ZA.toast('返回')">
                     <i class="za-icon za-icon-md">arrow_back</i>
                 </button>
-                <button class="za-icon-button za-icon-button-primary">
+                <button class="za-icon-button za-icon-button-primary" onclick="ZA.toast('确认')">
                     <i class="za-icon za-icon-md za-icon-white">check</i>
                 </button>
-                <button class="za-icon-button">
+                <button class="za-icon-button" onclick="ZA.toast('添加')">
                     <i class="za-icon za-icon-md">add</i>
                 </button>
-                <button class="za-icon-button">
+                <button class="za-icon-button" onclick="ZA.toast('更多')">
                     <i class="za-icon za-icon-md">more_vert</i>
+                </button>
+                <button class="za-icon-button" onclick="ZA.toast('搜索')">
+                    <i class="za-icon za-icon-md">search</i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 图标按钮组合 -->
+        <div style="margin-bottom: 3vw;">
+            <div style="font-size: 3vw; color: var(--text-6); margin-bottom: 2vw;">图标按钮组合 </div>
+            <div class="demo-row">
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md za-icon-filled za-icon-danger">favorite</i>
+                </button>
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">share</i>
+                </button>
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">download</i>
+                </button>
+                <button class="za-icon-button">
+                    <i class="za-icon za-icon-md">delete</i>
                 </button>
             </div>
         </div>

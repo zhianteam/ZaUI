@@ -39,9 +39,10 @@ a[href]:active {
 
 button {
     border: none;
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: transparent;
     outline: none;
     font-family: inherit;
+    cursor: pointer;
 }
 
 ul, ol {
@@ -49,7 +50,7 @@ ul, ol {
     padding: 0;
 }
 
-/* ========== 主题变量 ========== */
+/* ========== 主题变量（完全对齐小米MIUI设计规范）========== */
 [data-theme=light] {
     /* 背景色 */
     --background-color: #fff;
@@ -91,13 +92,13 @@ ul, ol {
     --btn-background-color: rgba(0, 0, 0, 0.06);
     
     /* 图标 */
-    --icon-color: #000;
+    --icon-color: #333;
     --filter-value: invert(0%);
     
     /* 系统色 */
     --system-red: #f22424;
     --system-red-background: rgba(242, 36, 36, 0.1);
-    --system-yellow: #ffbb00;
+    --system-yellow: #fb0;
     --system-yellow-background: rgba(255, 187, 0, 0.1);
     
     /* 文字扩展 */
@@ -163,13 +164,13 @@ ul, ol {
     --btn-background-color: hsla(0, 0%, 100%, 0.04);
     
     /* 图标 */
-    --icon-color: hsla(0, 0%, 100%, 0.8);
+    --icon-color: #888;
     --filter-value: invert(68%);
     
     /* 系统色 */
     --system-red: #f22424;
     --system-red-background: rgba(242, 36, 36, 0.1);
-    --system-yellow: #ffbb00;
+    --system-yellow: #fb0;
     --system-yellow-background: rgba(255, 187, 0, 0.1);
     
     /* 文字扩展 */

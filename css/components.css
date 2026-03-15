@@ -644,6 +644,51 @@
     font-size: 9.259259vw;
     vertical-align: middle;
     color: var(--icon-color);
+    display: inline-block;
+}
+
+/* 图标颜色修饰符 */
+.za-icon-primary {
+    color: var(--theme-color);
+}
+
+.za-icon-success {
+    color: #52c41a;
+}
+
+.za-icon-warning {
+    color: var(--system-yellow);
+}
+
+.za-icon-danger {
+    color: var(--system-red);
+}
+
+.za-icon-muted {
+    color: var(--text-4);
+}
+
+.za-icon-white {
+    color: #fff;
+}
+
+/* 图标填充样式 */
+.za-icon-filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* 图标加载动画 */
+.za-icon-loading {
+    animation: za-icon-rotate 1s linear infinite;
+}
+
+@keyframes za-icon-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .za-icon-xxs {
@@ -1459,5 +1504,49 @@
     
     .za-notification-close {
         margin-left: 12px;
+    }
+}
+
+/* ========== Icon Button 图标按钮 ========== */
+.za-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 9.259259vw;
+    height: 9.259259vw;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.za-icon-button:active {
+    transform: scale(0.95);
+    background: var(--button-background-color);
+}
+
+.za-icon-button-primary {
+    background: var(--theme-color);
+}
+
+.za-icon-button-primary:active {
+    background: var(--darken-theme-color);
+}
+
+@media screen and (min-width: 670px) {
+    .za-icon-button {
+        width: 6.25vw;
+        height: 6.25vw;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .za-icon-button {
+        width: 40px;
+        height: 40px;
     }
 }
